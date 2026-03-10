@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<title>EJERCICIO 5</title>
+<link rel="stylesheet" href="miestilo.css">
+</head>
+
+
+<body>
+<h1 class="titulo"> Ejercicio 5 - matemáticas dinámicas - curso 25/26</h1>
+
+<h2 class="MarcoAzul">Autor: Álvaro Sánchez Salas</h2>
+
+<h4>
+En este ejercicio, se creará un Canvas que haga que el usuario dibuje.
+</h4>
+
+
+<h4>
+Pincha en el lienzo de abajo para empezar a dibujar.
+</h4>
+<canvas id="lienzo" width="600" height="400" style="border:1px solid black;"></canvas>
+
+<br><br>
+
+
+<button onclick="borrar()">Limpiar lienzo</button>
+
+<script>
+
+let canvas = document.getElementById("lienzo");
+let ctx = canvas.getContext("2d");
+
+let puntos = [];
+
+canvas.addEventListener("click", function(event){
+
+let rect = canvas.getBoundingClientRect();
+
+let x = event.clientX - rect.left;
+let y = event.clientY - rect.top;
+
+puntos.push({x:x, y:y});
+
+dibujar();
+
+});
+
+function dibujar(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+ctx.beginPath();
+
+for(let i = 0; i < puntos.length; i++){
+
+if(i === 0){
+ctx.moveTo(puntos[i].x, puntos[i].y);
+}
+else{
+ctx.lineTo(puntos[i].x, puntos[i].y);
+}
+
+}
+
+ctx.stroke();
+
+dibujarPuntos();
+
+}
+
+function dibujarPuntos(){
+
+for(let i = 0; i < puntos.length; i++){
+
+ctx.beginPath();
+ctx.arc(puntos[i].x, puntos[i].y, 4, 0, 2*Math.PI);
+ctx.fillStyle = "red";
+ctx.fill();
+
+}
+
+}
+
+function borrar(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+puntos = [];
+
+}
+
+</script>
+
+
+
+
+</body>
+</html>

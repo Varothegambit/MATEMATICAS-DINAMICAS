@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<title>EJERCICIO 4</title>
+<link rel="stylesheet" href="miestilo.css">
+</head>
+
+
+
+<body>
+
+<h1 class="titulo"> Ejercicio 4 - matemáticas dinámicas - curso 25/26</h1>
+
+<h2 class="MarcoAzul">Autor: Álvaro Sánchez Salas</h2>
+
+<h4>
+En este ejercicio, se aplica el método de Bisección (creado en un archivo .js) a una función f, en un intervalo [a,b], con un número de iteraciones n, dados por el usuario.
+</h4>
+
+ 
+<p>Introduce la función:</p>
+f(x): <input type="text" id="funcion" placeholder="Ejemplo: x*x*x-x*x-5*x+10"><br><br>
+
+<p>Introduce el intervalo:</p>
+
+a: <input type="number" id="a" step="any"><br><br>
+b: <input type="number" id="b" step="any"><br><br>
+
+<p>Introduce el número de iteraciones</p>
+
+n: <input type="number" id="n" step="any"><br><br>
+
+
+<button onclick="CalRes()">Calcular raíz aproximada</button>
+
+<p id="resultado"></p>
+
+<script src="Biseccion.js"></script>
+
+</body>
+</html>
