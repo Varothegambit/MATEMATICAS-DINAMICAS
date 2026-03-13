@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<title>EJERCICIO 6 Apartado 2</title>
+<link rel="stylesheet" href="miestilo.css">
+</head>
+
+
+ <script type="text/x-mathjax-config">
+  
+  
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+MathJax.Hub.Config({
+  TeX: {
+    Macros: {
+      R: "{\\mathbb R}",
+      N: "{\\mathbb N}",
+      Z: "{\\mathbb Z}",
+      bold: ["{\\bf #1}",1]
+    }
+  }
+});
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+TeX: {
+  extensions: ["AMSmath.js", "AMSsymbols.js", "color.js"]
+}
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML' async></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body>
+<h1 class="titulo"> Ejercicio 6 - segundo apartado - matemáticas dinámicas - curso 25/26</h1>
+
+<h2 class="MarcoAzul">Autor: Álvaro Sánchez Salas</h2>
+
+<h4>En este segundo apartado del ejercicio 6, demostraremos el teorema del coseno.</h4>
+<h4> Primero expondremos el enunciado del teorema, luego su demostración teórica y por último su demostración visual interactiva. </h4>
+<h4> Este ejercicio es bastante completo, puesto que combina la escritura matemática simbólica y las clases de estilo que creamos en <span class="resaltado">Ejercicio 3</span>  <a href="ejercicio3.html">(Enlace)</a>, <br> la creación de polígonos del <span class="resaltado">Ejercicio 5</span> <a href="ejercicio5.html">(Enlace)</a> y la manipulación de expresiones algebraicas expuesta en la teoría previa de este ejercicio.
+</h4>
+
+<h4 class="MarcoRojo"> 
+<br>
+ TEOREMA DEL COSENO
+ <br> <br>
+Sea $\triangle ABC$  un triángulo cualquiera, con ángulos $\alpha$, $\beta$, $\gamma $ y lados $a$, $b$, $c$ opuestos a estos, respectivamente. Se cumple que:
+
+$$ a^2=b^2+c^2-2 \cdot b \cdot c \cdot cos(\alpha)$$
+$$ b^2=a^2+c^2-2 \cdot a \cdot c \cdot cos(\beta)$$
+$$ c^2=a^2+b^2-2 \cdot a \cdot b \cdot cos(\gamma)$$
+
+</h4>
+
+<h4>
+Demostración teórica:
+<br>
+<br>
+(W.L.O.G.) Sea el lado c del triángulo $\triangle ABC$. Trazamos la siguiente altura desde uno de los vértices que forman $c$, como se ve en la siguiente imagen:
+
+
+<br>
+Hemos dividido pues nuestro triángulo en dos triángulos rectángulos. Aplicando <span class="resaltado">el Teorema de Pitágoras </span> a estos dos triángulos, tenemos por un lado:
+
+$$c^2=u^2+h^2 \ \ \ \ (*)$$
+
+Y por otro:
+
+$$a^2=h^2+(b-u)^2;$$
+$$a^2-(b-u)^2=h^2 $$
+$$a^2-(b^2-2 \cdot b \cdot u +u^2)=h^2$$
+$$h^2=a^2-b^2+2 \cdot b \cdot u-u^2 \ \ \ \ (**)$$
+
+
+Sumando $(*)$ y $(**)$, nos queda:
+$$c^2+h^2=u^2+h^2+a^2-b^2+2 \cdot b \cdot u-u^2$$
+
+Simplificando:
+$$c^2=a^2-b^2+2 \cdot b \cdot u \ \ \ \ (1)$$
+
+Aplicando la <span class="resaltado">definición de coseno</span> (lado contiguo partido de hipotenusa) al ángulo $\gamma$:
+
+$$cos(\gamma)=\frac{b-u}{a}$$
+de donde:
+$$u=b-a \cdot cos(\gamma) \ \ \ \ (2)$$
+
+Sustituyendo (2) en (1), nos queda:
+
+$$c^2=a^2-b^2+2 \cdot b \cdot (b-a \cdot cos(\gamma))=a^2-b^2+2 \cdot b^2- 2 \cdot b \cdot a \cdot cos(\gamma)=a^2+b^2 - 2 \cdot b \cdot a \cdot cos(\gamma)$$
+
+Y finalmente:
+
+<h4 class="MarcoAzul">
+
+$$c^2=a^2+b^2 - 2 \cdot a \cdot b \cdot cos(\gamma)$$
+
+</h4>
+
+<h4>
+Como queríamos demostrar.
+
+
+
+</h4>
+
+
+<h4>Haz tres clicks en el lienzo para crear un triángulo </h4>
+
+<canvas id="lienzo" width="700" height="450" style="border:1px solid black"></canvas>
+<p id="mensaje"></p>
+<br><br>
+
+<button onclick="borrar()">Borrar lienzo</button>
+
+<script src="coseno.js"></script>
+
+<br><br><br><br>
+</body>
+
+
+</html>
